@@ -11,7 +11,7 @@ class Scraping extends Command
      *
      * @var string
      */
-    protected $signature = 'scraping:vanila';
+    protected $signature = 'scraping:execution';
 
     /**
      * The console command description.
@@ -19,6 +19,16 @@ class Scraping extends Command
      * @var string
      */
     protected $description = 'Scraping';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     /**
      * Execute the console command.
