@@ -3,6 +3,8 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class Scraping extends Command
 {
@@ -20,6 +22,8 @@ class Scraping extends Command
      */
     protected $description = 'Scraping';
 
+    private $client;
+
     /**
      * Create a new command instance.
      *
@@ -28,6 +32,7 @@ class Scraping extends Command
     public function __construct()
     {
         parent::__construct();
+        $this->client = new Client();
     }
 
     /**
