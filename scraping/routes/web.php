@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ChirpController;
+use App\Http\Controllers\ScrapingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,9 +32,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// chirps resourceで各ルーティングを設定＆定義したルーティングの一部を使用
+// chirps
 Route::resource('chirps', ChirpController::class)
     ->only(['index', 'store', 'show', 'edit', 'update', 'destroy'])
+    ->middleware(['auth', 'verified']);
+
+// scraping
+Route::resource('scraping', ScrapingController::class)
+    ->only(['index', 'store'])
     ->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';

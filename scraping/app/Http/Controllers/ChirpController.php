@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Response;
-
 use Illuminate\Http\RedirectResponse;
-use App\Models\Chirp;
 use Illuminate\Http\Request;
+
 use Illuminate\View\View;
+
+use App\Models\Chirp;
 
 class ChirpController extends Controller
 {
