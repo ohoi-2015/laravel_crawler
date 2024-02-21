@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ChirpController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// ログイン middleware
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+// ダッシュボード
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+// chirps resourceで各ルーティングを設定＆定義したルーティングの一部を使用
+Route::resource('chirps', ChirpController::class)
+    ->only(['index', 'store', 'show', 'edit', 'update', 'destroy'])
+    ->middleware(['auth', 'verified']);
+
+require __DIR__.'/auth.php';
