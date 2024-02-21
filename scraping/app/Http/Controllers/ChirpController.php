@@ -25,7 +25,7 @@ class ChirpController extends Controller
      */
     public function create()
     {
-        //
+        return abort(404);
     }
 
     /**
