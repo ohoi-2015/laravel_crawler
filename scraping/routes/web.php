@@ -39,7 +39,7 @@ Route::resource('chirps', ChirpController::class)
 
 // scraping
 Route::resource('scraping', ScrapingController::class)
-    ->only(['index', 'store'])
+    ->only(['index', 'store', 'destroy'])
     ->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';

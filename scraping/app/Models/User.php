@@ -50,7 +50,7 @@ class User extends Authenticatable
         return $this->hasMany(Chirp::class);
     }
 
-    public function Scraping(): HasMany
+    public function scrapings(): HasMany
     {
         return $this->hasMany(Scraping::class);
     }
