@@ -28,7 +28,7 @@
 						name="basic_user"
 						placeholder="{{ __('user') }}"
 						class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-					><small>{{ old('basic_user') }}<small></input>
+					><small>{{ old('basic_user') }}</small></input>
 					<x-input-error :messages="$errors->get('basic_user')" class="mt-2" />
 				</div>
 				<div>
@@ -36,7 +36,7 @@
 					name="basic_pass"
 					placeholder="{{ __('pass') }}"
 					class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-				><small>{{ old('basic_pass') }}<small></input>
+				><small>{{ old('basic_pass') }}</small></input>
 				<x-input-error :messages="$errors->get('basic_pass')" class="mt-2" />
 				</div>
 			</div>
@@ -47,7 +47,7 @@
 					name="selector"
 					placeholder="{{ __('指定したい要素のselectorをコピーしてください。') }}"
 					class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-				><small>{{ old('selector') }}<small></input>
+				><small>{{ old('selector') }}</small></input>
 				<x-input-error :messages="$errors->get('selector')" class="mt-2" />
 			</div>
 
@@ -57,7 +57,7 @@
 					name="property"
 					placeholder="{{ __('例）onmousedown') }}"
 					class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-				><small>{{ old('property') }}<small></input>
+				><small>{{ old('property') }}</small></input>
 				<x-input-error :messages="$errors->get('property')" class="mt-2" />
 			</div>
 

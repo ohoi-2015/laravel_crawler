@@ -5,13 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-
 use Illuminate\View\View;
-
 use Illuminate\Support\Facades\Auth;
-
 use App\Models\Scraping;
-
 use GuzzleHttp\Client;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -27,7 +23,7 @@ class ScrapingController extends Controller
         $data = [
             'scraping'        => Scraping::whereHas('user', function ($query) use ($user_id) {
                                                         $query->where('user_id', $user_id);
-                                                    })->where('user_id', $user_id)->get(),
+                                                    })->where('user_id', $user_id)->latest()->lazy(10),
         ];
         return view('scraping.index', $data);
     }
@@ -95,7 +91,7 @@ class ScrapingController extends Controller
         ];
 
         // 取得したurlとcssセレクターを用いて取得したいプロパティ値をDB保存する
-        $request->user()->scraping()->create($insert);
+        $request->user()->scrapings()->create($insert);
 
         return redirect(route('scraping.index'));
     }
